@@ -1,9 +1,8 @@
-const ree = new Audio(
-  // 'https://oldschool.runescape.wiki/images/transcoded/a/a9/Armadyl_Eye_sound.ogg/Armadyl_Eye_sound.ogg.mp3?37997'
+const audio = new Audio(
   'https://oldschool.runescape.wiki/images/a/a3/Runecraft_level_up_%28with_unlocks%29.ogg?d0756'
 );
 
-ree.volume = 0.25;
+audio.volume = 0.25;
 
 const timeDiv = document.getElementById('time');
 
@@ -41,14 +40,13 @@ const tick = () => {
   const elapsed = getElapsed();
 
   if (elapsed >= duration) {
-    ree.play();
+    audio.play();
     duration = defaultDuration;
     timestamp = Date.now();
     timeDiv.classList.remove('timer-low');
   }
 
   update();
-
   timeout = window.setTimeout(tick, 100);
 };
 
@@ -73,13 +71,15 @@ const reset = () => {
   timeDiv.innerText = '00:30';
   timeDiv.classList.remove('timer-low');
   window.clearTimeout(timeout);
-  ree.pause();
-  ree.currentTime = 0;
+  audio.pause();
+  audio.currentTime = 0;
 };
 
 const increment = () => {
-  duration += 1000;
-  update();
+  if (duration <= 58_000) {
+    duration += 1000;
+    update();
+  }
 };
 
 const decrement = () => {
