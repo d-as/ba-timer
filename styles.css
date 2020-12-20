@@ -1,0 +1,55 @@
+body {
+  margin: 1rem;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#time {
+  margin: 1rem;
+  font-size: 64pt;
+  font-family: monospace;
+}
+
+button {
+  width: 12rem;
+  height: 4rem;
+  font-size: 24pt;
+  font-family: monospace;
+}
+
+#button-start {
+  background-color: #BCB399;
+}
+
+#button-start:disabled {
+  background-color: silver;
+}
+
+#button-reset {
+  background-color: #979F86;
+}
+
+.button-row {
+  margin: .5rem;
+}
+
+img {
+  margin: 2rem;
+  max-width: 12rem;
+}
+
+.text-small {
+  font-size: 12pt;
+}
+
+.timer-low {
+  animation: timer-animation 2s infinite;
+}
+
+@keyframes timer-animation {
+  0% { color: #DC143C; }
+  50% { color: #960E29; }
+  100% { color: #DC143C; }
+}
