@@ -11,9 +11,15 @@ const resetButton = document.getElementById('button-reset');
 const incButton = document.getElementById('button-inc');
 const decButton = document.getElementById('button-dec');
 
+resetButton.disabled = true;
+
 const defaultDuration = 30_000;
 
-timeDiv.innerHTML = `00:${`${Math.ceil(defaultDuration / 1000)}`.padStart(2, '0')}`;
+const formatTime = time => (
+  `00:${`${Math.ceil(time / 1000)}`.padStart(2, '0')}`
+);
+
+timeDiv.innerHTML = formatTime(defaultDuration);
 
 let running = false;
 let duration = defaultDuration;
@@ -27,7 +33,8 @@ const getElapsed = () => (
 const update = () => {
   const elapsed = getElapsed();
   const timeLeft = Math.ceil((duration - elapsed) / 1000);
-  timeDiv.innerText = `00:${`${timeLeft}`.padStart(2, '0')}`;
+  timeDiv.innerText = formatTime(duration - elapsed);
+  resetButton.disabled = running ? false : timeLeft === (defaultDuration / 1000);
 
   if (timeLeft <= 5) {
     timeDiv.classList.add('timer-low');
@@ -56,8 +63,9 @@ const start = () => {
   if (running) {
     timestamp = Date.now();
     startButton.disabled = true;
-
     timeout = window.setTimeout(tick, 100);
+    timeDiv.classList.add('flash');
+    window.setTimeout(() => timeDiv.classList.remove('flash'), 400);
   } else {
     startButton.disabled = false;
   }
@@ -66,6 +74,7 @@ const start = () => {
 const reset = () => {
   timestamp = null;
   startButton.disabled = false;
+  resetButton.disabled = true;
   running = false;
   duration = defaultDuration;
   timeDiv.innerText = '00:30';

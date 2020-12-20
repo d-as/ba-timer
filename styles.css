@@ -1,38 +1,41 @@
-body {
-  margin: 1rem;
-  font-family: sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 #time {
-  margin: 1rem;
   font-size: 64pt;
-  font-family: monospace;
 }
 
 button {
-  width: 12rem;
-  height: 4rem;
-  font-size: 24pt;
-  font-family: monospace;
+  width: 16rem;
+}
+
+.buttons {
+  margin: 1rem;
+}
+
+.spacer {
+  margin: 2rem;
+}
+
+.spacer-smaller {
+  margin: 1.5rem;
 }
 
 #button-start {
   background-color: #BCB399;
 }
 
-#button-start:disabled {
-  background-color: silver;
-}
-
 #button-reset {
   background-color: #979F86;
 }
 
+#button-dec {
+  background-color: #CCC;
+}
+
+#button-inc {
+  background-color: #DDD;
+}
+
 .button-row {
-  margin: .2rem;
+  margin: .7rem;
 }
 
 img {
@@ -48,8 +51,18 @@ img {
   animation: timer-animation 2s infinite;
 }
 
+.flash {
+  animation: flash-animation .4s infinite;
+}
+
 @keyframes timer-animation {
   0% { color: #DC143C; }
   50% { color: #960E29; }
   100% { color: #DC143C; }
+}
+
+@keyframes flash-animation {
+  0% { color: black; }
+  50% { color: #646464; }
+  100% { color: black; }
 }

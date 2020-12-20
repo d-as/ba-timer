@@ -5,34 +5,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BA Timer</title>
   <link href="styles.css" rel="stylesheet">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+    integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ=="
+    crossorigin="anonymous"
+  />
 </head>
 <body>
-  <h1>
-    BA Timer
-    <span class="text-small">
-      v2
-    </span>
-  </h1>
-  <div id="time">
-    00:30
+  <div class="ui center aligned container">
+    <h1>
+      BA Timer
+      <span class="text-small">
+        v3
+      </span>
+    </h1>
+    <div class="spacer"></div>
+    <strong id="time"></strong>
+    <div class="spacer-small"></div>
+    <div class="buttons">
+      <div class="button-row">
+        <button id="button-start" class="massive ui labeled icon button">
+          <i class="play icon"></i>
+          Start
+        </button>
+        <button id="button-reset" class="massive ui labeled icon button">
+          <i class="redo icon"></i>
+          Reset
+        </button>
+      </div>
+      <div class="button-row">
+        <button id="button-dec" class="massive ui icon button">
+          <i class="minus icon"></i>
+        </button>
+        <button id="button-inc" class="massive ui icon button">
+          <i class="plus icon"></i>
+        </button>
+      </div>
+    </div>
+    <div class="ui divider"></div>
+    <img src="https://oldschool.runescape.wiki/images/thumb/d/d5/Penance_Pet.png/1280px-Penance_Pet.png?56343">
+    <div class="ui divider"></div>
   </div>
-  <div class="button-row">
-    <button id="button-start">
-      Start
-    </button>
-    <button id="button-reset">
-      Reset
-    </button>
-  </div>
-  <div class="button-row">
-    <button id="button-dec">
-      −
-    </button>
-    <button id="button-inc">
-      +
-    </button>
-  </div>
-  <img src="https://oldschool.runescape.wiki/images/thumb/d/d5/Penance_Pet.png/1280px-Penance_Pet.png?56343">
   <script src="index.js"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"
+    integrity="sha512-dqw6X88iGgZlTsONxZK9ePmJEFrmHwpuMrsUChjAw1mRUhUITE5QU9pkcSox+ynfLhL15Sv2al5A0LVyDCmtUw=="
+    crossorigin="anonymous"
+  ></script>
 </body>
 </html>
