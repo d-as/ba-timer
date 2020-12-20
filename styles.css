@@ -1,3 +1,7 @@
+.root {
+  margin-top: 1rem;
+}
+
 #time {
   font-size: 64pt;
 }
